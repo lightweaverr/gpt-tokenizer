@@ -49,6 +49,7 @@ class BasicTokenizerBPE(Tokenizer):
         ids = list(text_bytes)
         while len(ids) >= 2:
             stats = get_pair_counts(ids)
+            # gets the pair with least merges index
             pair = min(stats, key=lambda p: self.merges.get(p, float('inf')))
 
             if pair not in self.merges:
