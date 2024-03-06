@@ -1,6 +1,7 @@
 """
 Contains a few helper functions
 """
+import unicodedata
 
 def get_pair_counts(elements, counts={}):
     '''

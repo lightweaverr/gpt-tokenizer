@@ -18,7 +18,7 @@ class BasicTokenizerBPE(Tokenizer):
 
     def train(self, text, vocab_size, verbose=False):
         assert vocab_size >= 256
-        num_merges = vocab_size - 256s
+        num_merges = vocab_size - 256
 
         text_bytes = text.encode("utf-8") # raw bytes
         ids = list(text_bytes) # list of integers in range 0..255
