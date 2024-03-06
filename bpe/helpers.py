@@ -3,10 +3,12 @@ Contains a few helper functions
 """
 import unicodedata
 
-def get_pair_counts(elements, counts={}):
+def get_pair_counts(elements, counts=None):
     '''
     Given a list, returns a dictionary of the count of each pair in the list
     '''
+    if counts is None:
+        counts = {}
     for pair in zip(elements, elements[1:]):
         counts[pair] = counts.get(pair, 0) + 1
     return counts 

@@ -31,7 +31,7 @@ class TokenizerBPE(Tokenizer):
          # split the text into chunks using the pattern
         text_re = re.findall(self.compiled_pattern, text)  
         #  convert into ids list
-        ids = list(ch.encode('utf08') for ch in text_re)
+        ids = list(ch.encode('utf-8') for ch in text_re)
 
         # iteratively merge the most common pairs 
         merges = {}
@@ -42,10 +42,12 @@ class TokenizerBPE(Tokenizer):
             idx = 256 + i   # mint a new token
             ids = merge(ids, pair, idx)
             merges[pair] = idx
+            print(vocab)
+            print(pair)
+            self.inverse
             vocab[idx] = vocab[pair[0]] + vocab[pair[1]]
             if verbose:
                 print(f"merge {i+1}/{num_merges}: {pair} -> {idx} ({vocab[idx]}) had {stats[pair]} occurrences")
-            
         self.merges = merges
         self.vocab = vocab
 
